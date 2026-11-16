@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#171326">
+  <title>星夜研究所｜成人偏好探索測驗</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink"><span class="brand-mark">✦</span><span>星夜研究所<small>ADULT PERSONALITY LAB</small></span></a>
+    <nav><button class="nav-btn active" data-view="home">測驗中心</button><button class="nav-btn" data-view="history">測驗紀錄</button><button class="nav-btn" data-view="about">使用說明</button></nav>
+  </header>
+  <main>
+    <section id="ageGate" class="age-gate">
+      <div class="gate-card">
+        <div class="eyebrow">WELCOME TO THE LAB</div>
+        <div class="gate-icon">✧</div>
+        <h1>星夜研究所</h1>
+        <p class="lead">成人偏好與親密關係探索測驗</p>
+        <p class="muted">本網站包含成人親密關係與偏好相關題目。請確認你已年滿 18 歲，並理解測驗僅供自我探索與娛樂參考。</p>
+        <button class="primary wide" id="enterBtn">我已年滿 18 歲，進入網站</button>
+        <p class="tiny">未滿 18 歲者請離開本網站。測驗不會要求真實姓名或聯絡資料。</p>
+      </div>
+    </section>
+
+    <section id="homeView" class="view hidden">
+      <div class="hero">
+        <div class="hero-copy">
+          <div class="eyebrow">DISCOVER YOUR INNER CONSTELLATION</div>
+          <h1>探索你的<span>偏好光譜</span></h1>
+          <p>透過情境選擇，認識自己的互動偏好、角色表現與親密關係需求。</p>
+          <div class="hero-tags"><span>✦ 匿名作答</span><span>✦ 即時分析</span><span>✦ 本機保存</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true"><div class="orb orb1">✧</div><div class="orb orb2">✦</div><div class="orb orb3">✧</div><div class="moon">☾</div><div class="orbit"></div></div>
+      </div>
+      <div class="section-heading"><div><div class="eyebrow">CHOOSE YOUR TEST</div><h2>測驗項目</h2></div><span class="muted" id="testCount">共 5 項測驗</span></div>
+      <div class="test-grid" id="testGrid"></div>
+      <div class="privacy-note"><span>🔒</span><div><b>隱私優先</b><p>作答與紀錄預設只保存在目前裝置的瀏覽器。本網站不會自動上傳答案。</p></div></div>
+    </section>
+
+    <section id="quizView" class="view hidden">
+      <button class="back-link" id="backHome">← 返回測驗中心</button>
+      <div class="quiz-shell">
+        <div class="quiz-top"><span class="eyebrow" id="quizCategory">TEST</span><span class="muted" id="progressText">1 / 8</span></div>
+        <h2 id="questionTitle">題目</h2><p class="question-hint">請選擇最符合你真實感受的一項，沒有標準答案。</p>
+        <div class="progress"><div id="progressBar"></div></div>
+        <div class="answers" id="answerList"></div>
+        <div class="quiz-actions"><button class="secondary" id="prevBtn" disabled>上一題</button><button class="primary" id="nextBtn" disabled>下一題 →</button></div>
+        <p class="tiny center">你可以隨時退出；答案只在本次測驗期間暫存於頁面。</p>
+      </div>
+    </section>
+
+    <section id="resultView" class="view hidden">
+      <div class="result-shell">
+        <div class="eyebrow">YOUR PERSONAL REPORT</div>
+        <div class="result-symbol">✦</div>
+        <h1 id="resultTitle">測驗結果</h1>
+        <p class="result-subtitle" id="resultSubtitle"></p>
+        <p class="result-description" id="resultDescription"></p>
+        <div class="chart-card"><div class="chart-title">偏好光譜分析 <span>0–100%</span></div><div id="scoreBars"></div></div>
+        <div class="result-disclaimer">結果是依照本次回答產生的非臨床自我探索摘要，不代表固定人格、性傾向、性別認同或醫療診斷。偏好可能隨情境與時間改變。</div>
+        <div class="result-actions"><button class="primary" id="saveImageBtn">下載結果圖片 PNG</button><button class="secondary" id="retryBtn">重新測驗</button><button class="secondary" id="homeFromResult">回測驗中心</button></div>
+      </div>
+    </section>
+
+    <section id="historyView" class="view hidden">
+      <div class="section-heading"><div><div class="eyebrow">YOUR LOCAL ARCHIVE</div><h2>測驗紀錄</h2></div><button class="text-btn" id="clearHistory">清除全部紀錄</button></div>
+      <div id="historyList" class="history-list"></div>
+      <p class="tiny">紀錄僅保存在這個瀏覽器的本機儲存空間。清除瀏覽器資料或更換裝置後，紀錄可能消失。</p>
+    </section>
+
+    <section id="aboutView" class="view hidden">
+      <div class="about-card"><div class="eyebrow">ABOUT THIS PROJECT</div><h2>使用說明與隱私政策</h2>
+        <h3>測驗定位</h3><p>本網站提供成人偏好、角色扮演想像、互動模式與親密關係需求的自我探索題目，並非經過臨床驗證的心理量表。</p>
+        <h3>匿名與資料處理</h3><p>網站不要求註冊、姓名、電子郵件或電話。測驗紀錄可選擇保存在本機瀏覽器；下載結果圖片只會在你的裝置上產生。</p>
+        <h3>安全與同意</h3><p>任何親密互動都應建立在成年人、自願、知情同意、可隨時停止及尊重界線的基礎上。測驗結果不應用來替他人貼標籤或施加壓力。</p>
+        <h3>如何發布</h3><p>將本資料夾中的 index.html、style.css、app.js 一起上傳至 GitHub 儲存庫，並在 Settings → Pages 選擇部署分支，即可發布為靜態網站。</p>
+      </div>
+    </section>
+  </main>
+  <footer>星夜研究所 · 僅供年滿 18 歲者自我探索與娛樂使用</footer>
+  <script src="app.js"></script>
+</body>
+</html>
